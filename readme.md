@@ -7,7 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-
+## Информация по установке
+- cd domains
+- git clone
+- composer self-update
+- composer install
+- создать файл .env из .env.example
+- перезапустить сервер
+- http://My_project.git
 
 ## About Laravel
 

@@ -13,6 +13,8 @@
 - composer self-update
 - composer install
 - создать файл .env из .env.example
+- создать базу с именем
+- выполнить миграции php artisan migrate либо экспорт файла своей БД
 - перезапустить сервер
 - http://My_project.git
 

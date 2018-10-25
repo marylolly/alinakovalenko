@@ -8,6 +8,10 @@
   <title>Название сайта</title>
   <link rel="stylesheet" type="text/css" href="{{asset('media/bootstrap/css/bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('media/css/style.css')}}"/>
+  @section ('styles')
+  @show
+  @section ('scripts')
+  @show
 </head>
 <body>
   <header id="header">
@@ -53,6 +57,7 @@
   		<a href="#" class="btn btn-default btn-block">Разработка сайтов</a>
   		<a href="#" class="btn btn-success btn-block">Продвижение</a>
   		<a href="#" class="btn btn-primary btn-block">Обслуживание</a>
+		<a href="feedback" class="btn btn-default btn-block">Отзывы</a>
   		</div>
   		<div class="col-md-8">
 		@yield ('content')

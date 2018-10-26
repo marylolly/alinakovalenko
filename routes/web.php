@@ -22,4 +22,6 @@ Route::post('/home', 'HomeController@postIndex');
 
 Route::get('feedback', 'FeedBackController@getIndex');
 
+Route::get('catalog/{id}', 'CatalogController@getIndex');
+
 Route::get('{url}','StaticController@getIndex'); //всегда в конце

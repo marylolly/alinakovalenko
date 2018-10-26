@@ -2,10 +2,22 @@ body {
 	margin: 0;
 	padding: 0;
 
+
 }
 header {
 	height: 200px;
-	background: url('../img/fon.jpg');
+	background: #FAC9EC;
+
+background: linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+
+background: -webkit-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+
+background: -moz-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+
+background: -o-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='FAC9EC', endColorstr='#A3E4D7',GradientType=1 );
+	
 }
 header h1 {
 	float: left;
@@ -28,14 +40,15 @@ header img {
 	width: 100%;
 	margin: 0 auto;
 
+
 	
 }
 .topmenu a {
 	flex: 1;
 	display: block;
 	text-decoration: none;
-	background: olivedrab;
-	color: white;
+	background: #FAC9EC;
+	color: black;
 	text-align: center;
 	padding: 20px 0;
 	border: 1px solid white;
@@ -50,7 +63,7 @@ header img {
 	text-align: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background: wheat;
+	background: #a3e4d7;
 	color: black;
 
 }

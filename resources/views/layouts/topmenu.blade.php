@@ -1,9 +1,9 @@
 <nav class="topmenu">
-  	<a href="index">Главная</a>
-  	<a href="about">О компании</a>
-  	<a href="services">Услуги</a>
-  	<a href="#">Товары</a>
-  	<a href="contakts">Контакты</a>
+  	<a href="{{asset('index')}}">Главная</a>
+  	<a href="{{asset('about')}}">О компании</a>
+  	<a href="{{asset('services')}}">Услуги</a>
+  	<a href="{{asset('categories')}}">Товары</a>
+  	<a href="{{asset('contakts')}}">Контакты</a>
 	@guest
                             
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

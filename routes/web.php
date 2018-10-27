@@ -24,4 +24,11 @@ Route::get('feedback', 'FeedBackController@getIndex');
 
 Route::get('catalog/{id}', 'CatalogController@getIndex');
 
+Route::get('categories', 'ProductController@getAll');
+
+Route::group(['middleware'=>['authuser']],
+function (){
+	Route::get('basket', 'BasketController@getIndex');
+});
+
 Route::get('{url}','StaticController@getIndex'); //всегда в конце

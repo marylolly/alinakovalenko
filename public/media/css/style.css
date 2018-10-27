@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
 
 
 }
@@ -65,8 +66,26 @@ header img {
 	padding-bottom: 50px;
 	background: #a3e4d7;
 	color: black;
+	position: absolute;
+	bottom: auto;
+	width: 100%;
 
 }
+
+.product {
+	float:left;
+	margin-right: 10px;
+	width: 70px;
+	
+}
+
+.maintext {
+	margin: auto auto;
+	text-align: justify;
+	width: 80%;
+	
+}
+
 @media screen and (max-width: 600px) {
 	#header {
 		height: 100px;

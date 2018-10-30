@@ -9,8 +9,8 @@
 		
 		
 	
-					
-				
+<br>					
+<a href="{{asset('basket/add/'.$obj->id)}}" class="btn btn-lg btn-default">Добавить в корзину</a>				
 		</div>
   		
 		

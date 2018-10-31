@@ -43,5 +43,7 @@ Route::get('basket/dell/{id}', 'BasketController@getDell');
 
 Route::get('basket/clear', 'BasketController@getClear');
 
+Route::post('order', 'OrderController@postOrder');
+
 
 Route::get('{url}','StaticController@getIndex'); //всегда в конце

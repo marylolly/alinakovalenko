@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.category: ~4 rows (приблизительно)
+-- Дамп данных таблицы MyBD.category: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`id`, `name`, `body`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'Товары для дома', '<h2>Where can I get some?</h2>\r\n\r\n<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#39;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>', '2018-10-27 09:03:38', '2018-10-27 09:03:38', NULL),
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.menus: ~4 rows (приблизительно)
+-- Дамп данных таблицы MyBD.menus: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `position`, `menu_type`, `icon`, `name`, `title`, `parent_id`, `created_at`, `updated_at`) VALUES
 	(1, NULL, 0, NULL, 'User', 'User', NULL, NULL, NULL),
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `menu_role` (
   CONSTRAINT `menu_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.menu_role: ~2 rows (приблизительно)
+-- Дамп данных таблицы MyBD.menu_role: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `menu_role` DISABLE KEYS */;
 INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 	(3, 1),
@@ -153,9 +153,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.migrations: ~13 rows (приблизительно)
+-- Дамп данных таблицы MyBD.migrations: ~14 rows (приблизительно)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -170,8 +170,32 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(10, '2016_03_14_000000_update_menus_table', 5),
 	(11, '2018_10_27_090226_create_category_table', 6),
 	(12, '2018_10_27_095019_create_test3_table', 7),
-	(13, '2018_10_27_095803_create_product_table', 8);
+	(13, '2018_10_27_095803_create_product_table', 8),
+	(14, '2018_10_31_155736_create_orders_table', 9);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+-- Дамп структуры для таблица MyBD.orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `index` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci,
+  `user_id` int(11) NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Дамп данных таблицы MyBD.orders: ~0 rows (приблизительно)
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Дамп структуры для таблица MyBD.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
@@ -204,11 +228,11 @@ CREATE TABLE IF NOT EXISTS `product` (
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`id`, `name`, `body`, `price`, `picture`, `category_id`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'Скатерть кухонная арт. СY2600610, 150х220 см в ассортименте', '<p>Скатерть СY2600610 изготовлена из поливинила. Применяется для декора кухонной мебели, защиты стола для рисования, в качестве покрытия под еду на пикнике. Отличается стойкостью к щелочам и растворителям, высокой плотностью, устойчивостью к перегибам, легкостью мытья. Размер &mdash; 150х220 мм. Изделие представлено в цветовом ассортименте.</p>', '5.23', '1540624655-1.251019-medium.jpg', 1, 1, '2018-10-27 10:17:35', '2018-10-27 10:17:35', NULL),
-	(2, 'Полотенце махровое арт. СВ.И.9-100х180', '<p>Полотенце махровое арт. СВ.И.9-100х180 применяется для личной гигиены и декора ванной комнаты. Изготовлено из 100% хлопка. Хорошо впитывает влагу и быстро сохнет, подходит для посещения бассейна, сауны, бани. Полотенце отличается своей мягкостью и нежностью, не вызывает раздражение. Выдерживает многочисленные стирки и при этом не теряет яркость цвета. Размер &mdash; 100х180 см.</p>', '56,2', '1540624743-1.254709-medium.jpg', 1, 1, '2018-10-27 10:19:03', '2018-10-27 10:19:03', NULL),
-	(3, 'Рукавица текстильная 10001027LAV, код 391419, 17х27 см', '<p>Рукавица текстильная 10001027LAV, код 391419 используется на кухне для хозяйственных нужд. Верхний материал и наполнитель выполнены из 100 % хлопка, декоративная часть &mdash; полиэстера. Предохраняет от ожогов при соприкосновения с горячими предметами. Размер &mdash; 17х27 см.</p>', '5,36', '1540625014-1.250480-medium.jpg', 1, 1, '2018-10-27 10:23:34', '2018-10-27 10:23:34', NULL),
-	(4, 'Пылесос Hyundai H-VCB02, Минск', '<p>Пылесос Hyundai H-VCB02 мощностью 1800 Вт предназначен для бытовой сухой уборки в квартире, доме, офисных помещениях. Наличие регулятора на корпусе позволяет увеличить или уменьшить мощность всасывания до 350 Вт. В данной модели пылесборник представляет собой мешок объемом 2 литра. Благодаря большим колесам удобен в перемещении. Телескопическая труба всасывания выдвигается и фиксируется в удобном положении. Система тонкой очистки с НЕРА-фильтром улавливает мелкие частицы пыли и аллергенов. Длина сетевого шнура составляет 5 м.</p>', '589,4', '1540625306-2.253491-medium.jpg', 2, 1, '2018-10-27 10:28:26', '2018-10-27 10:28:26', NULL),
-	(5, 'Вытяжка AKPO LIGHT WK-7, 60 см нержавеющая сталь', '<p>Встраиваемая телескопическая вытяжка AKPO LIGHT WK-7 цвета нержавеющая сталь работает в режимах отвод (воздух выводится за пределы помещения через воздуховод) и циркуляция, при котором воздух очищается в жировом/угольном фильтре и подается обратно в комнату. С мощностью двигателя 100 Вт развивает производительность до 400 м3 в час. Управление производится механически через кнопки на лицевой панели. Для освещения рабочей поверхности плиты вытяжка оборудована одной лампой накаливания мощностью 25 Вт. Ширина встраивания&mdash; 60 см.</p>', '168,1', '1540625353-2.151274-medium.jpg', 2, 1, '2018-10-27 10:29:13', '2018-10-27 10:29:13', NULL),
-	(6, 'Комплект постельного белья евро НЕЖНОСТЬ Бязь (пододеяльник 200х220, простынь 220х240', '<p>Комплект постельного белья Евро НЕЖНОСТЬ состоит из одного пододеяльника размером 200х220 см, простыни размером 220х240 см и двух наволочек 70х70 см. Выполнен из бязи (100% хлопок с технологией смягчения ткани), отличается натуральностью и высокой износостойкостью. Белье подлежит многократным стиркам (при температуре не более 30 градусов, 600 оборотов), не садится и не растягивается. Комплект дополнит интерьер своим красочным рисунком оливкового цвета.</p>', NULL, NULL, 3, 1, '2018-10-27 11:18:29', '2018-10-27 11:18:29', NULL);
+	(2, 'Полотенце махровое арт. СВ.И.9-100х180', '<p>Полотенце махровое арт. СВ.И.9-100х180 применяется для личной гигиены и декора ванной комнаты. Изготовлено из 100% хлопка. Хорошо впитывает влагу и быстро сохнет, подходит для посещения бассейна, сауны, бани. Полотенце отличается своей мягкостью и нежностью, не вызывает раздражение. Выдерживает многочисленные стирки и при этом не теряет яркость цвета. Размер &mdash; 100х180 см.</p>', '56.2', '1540624743-1.254709-medium.jpg', 1, 1, '2018-10-27 10:19:03', '2018-10-27 10:19:03', NULL),
+	(3, 'Рукавица текстильная 10001027LAV, код 391419, 17х27 см', '<p>Рукавица текстильная 10001027LAV, код 391419 используется на кухне для хозяйственных нужд. Верхний материал и наполнитель выполнены из 100 % хлопка, декоративная часть &mdash; полиэстера. Предохраняет от ожогов при соприкосновения с горячими предметами. Размер &mdash; 17х27 см.</p>', '5.36', '1540625014-1.250480-medium.jpg', 1, 1, '2018-10-27 10:23:34', '2018-10-27 10:23:34', NULL),
+	(4, 'Пылесос Hyundai H-VCB02, Минск', '<p>Пылесос Hyundai H-VCB02 мощностью 1800 Вт предназначен для бытовой сухой уборки в квартире, доме, офисных помещениях. Наличие регулятора на корпусе позволяет увеличить или уменьшить мощность всасывания до 350 Вт. В данной модели пылесборник представляет собой мешок объемом 2 литра. Благодаря большим колесам удобен в перемещении. Телескопическая труба всасывания выдвигается и фиксируется в удобном положении. Система тонкой очистки с НЕРА-фильтром улавливает мелкие частицы пыли и аллергенов. Длина сетевого шнура составляет 5 м.</p>', '589.4', '1540625306-2.253491-medium.jpg', 2, 1, '2018-10-27 10:28:26', '2018-10-27 10:28:26', NULL),
+	(5, 'Вытяжка AKPO LIGHT WK-7, 60 см нержавеющая сталь', '<p>Встраиваемая телескопическая вытяжка AKPO LIGHT WK-7 цвета нержавеющая сталь работает в режимах отвод (воздух выводится за пределы помещения через воздуховод) и циркуляция, при котором воздух очищается в жировом/угольном фильтре и подается обратно в комнату. С мощностью двигателя 100 Вт развивает производительность до 400 м3 в час. Управление производится механически через кнопки на лицевой панели. Для освещения рабочей поверхности плиты вытяжка оборудована одной лампой накаливания мощностью 25 Вт. Ширина встраивания&mdash; 60 см.</p>', '168.1', '1540625353-2.151274-medium.jpg', 2, 1, '2018-10-27 10:29:13', '2018-10-27 10:29:13', NULL),
+	(6, 'Комплект постельного белья евро НЕЖНОСТЬ Бязь (пододеяльник 200х220, простынь 220х240', '<p>Комплект постельного белья Евро НЕЖНОСТЬ состоит из одного пододеяльника размером 200х220 см, простыни размером 220х240 см и двух наволочек 70х70 см. Выполнен из бязи (100% хлопок с технологией смягчения ткани), отличается натуральностью и высокой износостойкостью. Белье подлежит многократным стиркам (при температуре не более 30 градусов, 600 оборотов), не садится и не растягивается. Комплект дополнит интерьер своим красочным рисунком оливкового цвета.</p>', '5.23', NULL, 3, 1, '2018-10-27 11:18:29', '2018-10-27 11:18:29', NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 
 -- Дамп структуры для таблица MyBD.roles
@@ -258,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.users: ~1 rows (приблизительно)
+-- Дамп данных таблицы MyBD.users: ~2 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, NULL, 'Mary', 'maryen@mail.ru', NULL, '$2y$10$Z7ABjra77vQMP7rHPLENJ.qbx4iFyczdzGXCI9fu26ylhcPXXAiQq', '2YPsnFGu0hVFs5UJwcAwKaLzVZohKu9MZfEDz8UeLs3hhMVj9xV0XZ6bMNbk', '2018-10-25 10:43:08', '2018-10-25 10:43:08'),

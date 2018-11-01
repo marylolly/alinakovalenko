@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('type')->nullable();
             $table->string('fio')->nullable();
             $table->text('comment')->nullable();
+			$table->string('region')->nullable();
             $table->integer('user_id');
             $table->string('status');
             $table->timestamps();

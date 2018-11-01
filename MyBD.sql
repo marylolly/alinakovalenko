@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `menus_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Дамп данных таблицы MyBD.menus: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
@@ -125,7 +125,8 @@ INSERT INTO `menus` (`id`, `position`, `menu_type`, `icon`, `name`, `title`, `pa
 	(2, NULL, 0, NULL, 'Role', 'Role', NULL, NULL, NULL),
 	(3, 0, 1, 'fa-database', 'Category', 'Categories', NULL, '2018-10-27 09:02:26', '2018-10-27 09:02:26'),
 	(9, 0, 1, 'fa-database', 'Test3', 'Test3', NULL, '2018-10-27 09:50:19', '2018-10-27 09:50:19'),
-	(10, 0, 1, 'fa-database', 'Product', 'Products', NULL, '2018-10-27 09:58:02', '2018-10-27 09:58:02');
+	(10, 0, 1, 'fa-database', 'Product', 'Products', NULL, '2018-10-27 09:58:02', '2018-10-27 09:58:02'),
+	(11, 0, 3, 'fa-database', 'Order', 'Orders', NULL, '2018-11-01 11:54:44', '2018-11-01 11:54:44');
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 
 -- Дамп структуры для таблица MyBD.menu_role
@@ -144,7 +145,8 @@ CREATE TABLE IF NOT EXISTS `menu_role` (
 INSERT INTO `menu_role` (`menu_id`, `role_id`) VALUES
 	(3, 1),
 	(9, 1),
-	(10, 1);
+	(10, 1),
+	(11, 1);
 /*!40000 ALTER TABLE `menu_role` ENABLE KEYS */;
 
 -- Дамп структуры для таблица MyBD.migrations
@@ -155,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.migrations: ~14 rows (приблизительно)
+-- Дамп данных таблицы MyBD.migrations: ~13 rows (приблизительно)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -184,6 +186,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `index` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `region` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci,
   `user_id` int(11) NOT NULL,
@@ -191,10 +194,27 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Дамп данных таблицы MyBD.orders: ~0 rows (приблизительно)
+-- Дамп данных таблицы MyBD.orders: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`id`, `body`, `email`, `phone`, `address`, `city`, `index`, `type`, `region`, `fio`, `comment`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+	(1, 'a:1:{i:1;s:1:"1";}', 'maryen@mail.ru', 'fgd', 'gfd', 'fgd', 'dfgdg', '1', NULL, 'fds', '<p>fdgfd</p>', 0, 'new', '2018-11-01 10:23:23', '2018-11-01 10:23:23'),
+	(2, 'a:1:{i:1;s:1:"1";}', 'maryen@mail.ru', 'rtyrt', 'rtyrt', 'trytr', 'tryr', '2', 'Минская', 'tyr', '<p>yrtyrt</p>', 0, 'new', '2018-11-01 10:26:41', '2018-11-01 10:26:41'),
+	(3, 'a:2:{i:5;s:1:"1";i:4;s:1:"1";}', 'maryen@mail.ru', '5434', 'вапавп', 'авп', 'павпва', 'Курьер', 'Гомельская', 'fds', '<p>вап</p>', 0, 'new', '2018-11-01 10:55:13', '2018-11-01 10:55:13'),
+	(4, 'a:2:{i:3;s:1:"2";i:6;s:1:"1";}', 'maryen@mail.ru', 'sdf', 'rtyrt', 'sass', 'tryr', 'Почта', 'Витебская', 'fds', NULL, 0, 'new', '2018-11-01 11:00:25', '2018-11-01 11:00:25'),
+	(5, 'a:2:{i:3;s:1:"2";i:6;s:1:"1";}', 'maryen@mail.ru', 'sdf', 'rtyrt', 'sass', 'tryr', 'Почта', 'Витебская', 'fds', '<p>p[</p>', 0, 'new', '2018-11-01 11:19:37', '2018-11-01 11:19:37'),
+	(6, 'a:2:{i:4;s:1:"1";i:1;s:1:"1";}', 'maryen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:22:19', '2018-11-01 11:22:19'),
+	(7, 'a:2:{i:1;s:1:"1";i:2;s:1:"1";}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:23:54', '2018-11-01 11:23:54'),
+	(8, 'a:2:{i:1;s:1:"1";i:2;s:1:"1";}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:24:04', '2018-11-01 11:24:04'),
+	(9, 'a:0:{}', 'maryen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:24:56', '2018-11-01 11:24:56'),
+	(10, 'a:1:{i:3;s:1:"1";}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'fds', NULL, 0, 'new', '2018-11-01 11:34:53', '2018-11-01 11:34:53'),
+	(11, 'a:1:{i:3;s:1:"1";}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:37:36', '2018-11-01 11:37:36'),
+	(12, 'a:0:{}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:50:40', '2018-11-01 11:50:40'),
+	(13, 'a:0:{}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 0, 'new', '2018-11-01 11:52:37', '2018-11-01 11:52:37'),
+	(14, 'a:1:{i:1;s:1:"1";}', 'maryasdfasdfen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 3, 'new', '2018-11-01 14:00:27', '2018-11-01 14:00:27'),
+	(15, 'a:1:{i:1;s:1:"1";}', 'maryen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 3, 'new', '2018-11-01 14:05:53', '2018-11-01 14:05:53'),
+	(16, 'a:1:{i:4;s:1:"1";}', 'maryen@mail.ru', NULL, NULL, NULL, NULL, 'Курьер', 'Минская', 'Иванова', NULL, 3, 'new', '2018-11-01 14:07:01', '2018-11-01 14:07:01');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Дамп структуры для таблица MyBD.password_resets

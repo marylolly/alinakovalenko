@@ -27,3 +27,8 @@
     });
 
 </script>
+@section('scripts')
+
+@show
+
+@ensection

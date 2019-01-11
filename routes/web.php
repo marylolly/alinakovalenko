@@ -28,9 +28,9 @@ Route::get('categories', 'ProductController@getAll');
 
 
 
-Route::group(['middleware'=>['authuser']],
-function (){
+Route::group(['middleware'=>['authuser']], function (){
 	Route::get('basket', 'BasketController@getIndex');
+	Route::get('ajax/parse/catalog', 'Admin\AjaxParseController@getCatalog');
 });
 
 Route::get('product/{id}', 'ProductController@getOne');

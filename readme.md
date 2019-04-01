@@ -9,7 +9,7 @@
 
 ## Информация по установке на сервер
 - cd domains
-- git clone
+- git clone https://github.com/marylolly/My_Project.git
 - composer self-update
 - composer install
 - создать файл .env из .env.example

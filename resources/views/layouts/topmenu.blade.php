@@ -1,28 +1,30 @@
-<nav class="topmenu">
-  	<a href="{{asset('index')}}">Главная</a>
-  	<a href="{{asset('about')}}">О компании</a>
-  	<a href="{{asset('services')}}">Услуги</a>
-  	<a href="{{asset('categories')}}">Товары</a>
-  	<a href="{{asset('contakts')}}">Контакты</a>
+<nav>
+  <ul class="topmenu">
+    <li class="item item-1"><a href="{{asset('index')}}">Главная</a></li>
+    <li class="item item-2"><a href="{{asset('about')}}">О компании</a></li>
+    <li class="item item-3"><a href="{{asset('services')}}">Услуги</a></li>
+    <li class="item item-4"><a href="{{asset('categories')}}">Товары</a></li>
+    <li class="item item-5"><a href="{{asset('contakts')}}">Контакты</a></li>
+  
 	@guest
                             
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="item item-7"><a class="nav-link" href="{{ route('login') }}">{{ __('Логин') }}</a></li>
 
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <li class="item item-8"><a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a></li>
                                 @endif
                         @else
 
-                                <a href="{{asset('home')}}">
+                                <li class="item item-9"><a href="{{asset('home')}}">
                                     {{ Auth::user()->name }} 
-                                </a>
+                                </a></li>
 
                                 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <li class="item item-10"><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                        {{ __('Выход') }}
+                                    </a></li>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -30,4 +32,5 @@
                                 
 
                         @endguest
+    </ul>                    
   </nav>

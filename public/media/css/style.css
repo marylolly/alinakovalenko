@@ -1,70 +1,210 @@
 body {
 	margin: 0;
 	padding: 0;
-	height: 100%;
-
+	background: url('https://chinatowntourchicago.com/wp-content/uploads/2014/08/background1.jpg');
 
 }
-header {
-	height: 200px;
-	background: #FAC9EC;
 
-background: linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+#logo {
+	position: absolute;
+	top: 5px;
+	left: 40px;
+	height: 250px;
 
-background: -webkit-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+}
 
-background: -moz-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+#gallery {
+    width: 100%;
+    margin: 0 auto;  
 
-background: -o-linear-gradient(0deg, #FAC9EC 0%, #A3E4D7 100%);
+}
 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='FAC9EC', endColorstr='#A3E4D7',GradientType=1 );
+.photo {
+	position: relative;
+	height: 400px;
+    margin: 0 auto; 
+    overflow: hidden;
+}
+
+
+.photo img {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    transition: opacity 1s;
+ 
+    
+}
+
+.photo img.shown {
+     opacity: 1;
+}
+
+.tabs {
+    text-align: center;
+    
+}
+
+.rec {
+	display: inline-block;
+	width: 50px;
+	height: 7px;
+	background-color: black;
+}
+
+.active{
 	
+	background-color: crimson;
 }
-header h1 {
-	float: left;
-}
-header img {
-	float: right;
-}
-#logotext {
-	float: right;
-	padding: 10px;
-	padding-top: 40px;
-	margin-top: 0;
-	color: white;
-	text-shadow: 1px 1px 1px black;
+
+#poloska {
+	position: absolute;
+	display: block;
+	top: 360px;
+	width: 100%;
+	height: 40px;
+	background-color: white;
+	opacity: 0.4;
+	line-height: 40px;
 
 }
 
 .topmenu {
-	display: flex;
-	width: 100%;
-	margin: 0 auto;
+	position: absolute;
+	top: 110px;
+    list-style: none;
+    padding: 0;
+    margin: 0 3%;
+    width: 95%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
 
+}	
+  
+.item {
+    font-family: sans-serif;
+    border-left: 1px solid grey;
+    width: 130px;
+    background: white;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    opacity: 0.7;
 
-	
+}		
+    
+a {
+	text-transform: uppercase;
+    font-size: 0.8em;
+    color: black;
+    display: block;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    font-weight: 600;
 }
-.topmenu a {
-	flex: 1;
-	display: block;
+
+
+.item:hover {
+    background: darkblue;
+    opacity: 1;
+}
+
+a:hover {
+	color: white;
 	text-decoration: none;
-	background: #FAC9EC;
-	color: black;
-	text-align: center;
-	padding: 20px 0;
-	border: 1px solid white;
-	border-left: 0px;
 }
-.topmenu a:hover {
-	background: linen;
-	color: black;
+	
+.item-1 {
+	border: none;
+}
+
+#poloska {
+	position: absolute;
+	display: inline-block;
+	top: 360px;
+	width: 100%;
+	height: 40px;
+	background-color: white;
+	opacity: 0.4;
+
+}
+
+.row {
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-bottom: 30px;
+
+
+}
+
+.col-lg-4 {
+	-ms-flex: 0 0 33%;
+    flex: 0 0 33%;
+    max-width: 33%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-sm-6 {
+	-ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+.card {
+	position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+
+}
+
+
+.h-100 {
+	height: 100%;
+}
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
+}
+.card-footer {
+    padding: .75rem 1.25rem;
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
 }
 
 .footer {
 	text-align: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background: #a3e4d7;
 	color: black;
 	position: absolute;
 	bottom: auto;
@@ -129,14 +269,33 @@ header img {
   top:0;
  }
 
+
 @media screen and (max-width: 600px) {
-	#header {
-		height: 100px;
+
+	#gallery {
+		display: none;
 	}
-	#logo {
+	#poloska {
 		display: none;
 	}
 	.topmenu {
-	flex-direction: column;
+		flex-flow: column nowrap;
+		position: relative;
+}	
+	.row {
+		flex-flow: column nowrap;
+		
+}	
+
+.col-sm-6 {
+	-ms-flex: 0 0 95%;
+    flex: 0 0 95%;
+    max-width: 95%;
+}
+			
+a {
+	padding: 1.5em 1em;
+			}
+	
 }
 }

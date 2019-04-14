@@ -5,24 +5,90 @@
   <meta name="description" content="Описание сайта несколько предложений">
   <meta name="keywords" content="Ключевые слова">
   <meta name="author" content="Shandora">
-  <title>Название сайта</title>
+  <title>Дивная Турция</title>
   <link rel="stylesheet" type="text/css" href="{{asset('media/bootstrap/css/bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('media/css/style.css')}}"/>
+  
   @section ('styles')
   @show
   @section ('scripts')
   <script src="{{asset('public/js/app.js')}}">  
-</script>
+  </script>
   @show
 </head>
 <body>
-  <header id="header">
-  	<h1 id="logotext">Название сайта</h1>
-  	<img src="{{asset('media/img/logo.png')}}" id="logo">		
-  </header>
+
+  <div id="gallery">
+       <div class="photo">
+         <img src="{{asset('public/media/img/sl1.jpg')}}" class="shown"></img>
+         <img src="{{asset('public/media/img/sl2.jpg')}}"></img>
+         <img src="{{asset('public/media/img/sl4.jpg')}}"></img>
+       </div>
+
+       <div id="poloska">
+         <div class="tabs">
+            <div class="rec" onclick="galleryspin('1')"></div>
+            <div class="rec" onclick="galleryspin('2')"></div>
+            <div class="rec" onclick="galleryspin('3')"></div>
+        </div>
+       </div>
+       
+        
+   </div>
+
+   <div id="logo">
+     <img src="{{asset('public/media/img/logo1.png')}}" width="350px">
+   </div>
+
   @include('layouts.topmenu')
 
-  	<div>
+<h2>Portfolio Heading</h2>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project One</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Two</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Three</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      </div>
+  
   		<div class="col-md-2">
   		@foreach ($v_catalogs as $one)
       <a href="{{asset('catalog/'.$one->id)}}" class="btn btn-default btn-block">{{$one->name}}</a>
@@ -60,6 +126,15 @@
 <div class="footer">
 	&copy maryen@mail.ru
 </div>
+
+
+
+
+@section ('scripts')
+<script src="{{asset('public/js/slider.js')}}">  
+</script>
+
+
   
 </body>
 </html>

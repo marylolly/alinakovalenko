@@ -127,6 +127,15 @@
 	&copy maryen@mail.ru
 </div>
 
+<div id="preloader_malc">
+
+	<div>
+
+		Подождите, идет загрузка сайта ...
+
+	</div>
+
+</div>
 
 
 
@@ -134,6 +143,27 @@
 <script src="{{asset('public/js/slider.js')}}">  
 </script>
 
+
+<script type="text/javascript">
+	function preloader() {
+  if (sessionStorage.getItem('preloader-uuid-here')) {
+    
+    return;
+  } else {
+    document.getElementById("preloader_malc").style.display = "block";
+    sessionStorage.setItem('preloader-uuid-here', '1');
+
+    setTimeout(function() {
+
+			document.getElementById("preloader_malc").style.display = "none";
+
+		}, 3000);
+
+  }
+}
+
+preloader();
+</script>
 
   
 </body>

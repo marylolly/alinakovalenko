@@ -5,7 +5,7 @@
   <meta name="description" content="Описание сайта несколько предложений">
   <meta name="keywords" content="Ключевые слова">
   <meta name="author" content="Shandora">
-  <title>Дивная Турция</title>
+  <title>Дивная Турция - главная страница</title>
   <link rel="stylesheet" type="text/css" href="{{asset('media/bootstrap/css/bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('media/css/style.css')}}"/>
   
@@ -14,6 +14,7 @@
   @section ('scripts')
   <script src="{{asset('public/js/app.js')}}">  
   </script>
+
   @show
 </head>
 <body>
@@ -127,37 +128,36 @@
 	&copy maryen@mail.ru
 </div>
 
+
 <div id="preloader_malc">
-
-	<div>
-
-		Подождите, идет загрузка сайта ...
-
-	</div>
+</div>
+<div>
+	<img src="{{asset('public/media/img/logo1.png')}}" width="350px" id="preloader">
 
 </div>
-
 
 
 @section ('scripts')
 <script src="{{asset('public/js/slider.js')}}">  
 </script>
 
-
-<script type="text/javascript">
+ <script type="text/javascript">
 	function preloader() {
   if (sessionStorage.getItem('preloader-uuid-here')) {
+  	document.getElementById("preloader_malc").style.display = "none";
+  	document.getElementById("preloader").style.display = "none";
     
     return;
   } else {
     document.getElementById("preloader_malc").style.display = "block";
+    document.getElementById("preloader").style.display = "block";
     sessionStorage.setItem('preloader-uuid-here', '1');
 
     setTimeout(function() {
 
 			document.getElementById("preloader_malc").style.display = "none";
 
-		}, 3000);
+		}, 2700);
 
   }
 }

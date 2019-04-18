@@ -1,17 +1,18 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #F0F0F0;
+	background: #F1F0FA;
 
-background: linear-gradient(90deg, #F0F0F0 53%, #B02A56 66%);
+background: linear-gradient(-133deg, #F1F0FA 48%, #F4D2E7 100%);
 
-background: -webkit-linear-gradient(90deg, #F0F0F0 53%, #B02A56 66%);
+background: -webkit-linear-gradient(-133deg, #F1F0FA 48%, #F4D2E7 100%);
 
-background: -moz-linear-gradient(90deg, #F0F0F0 53%, #B02A56 66%);
+background: -moz-linear-gradient(-133deg, #F1F0FA 48%, #F4D2E7 100%);
 
-background: -o-linear-gradient(90deg, #F0F0F0 53%, #B02A56 66%);
+background: -o-linear-gradient(-133deg, #F1F0FA 48%, #F4D2E7 100%);
 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='F0F0F0', endColorstr='#B02A56',GradientType=1 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='F1F0FA', endColorstr='#F4648E',GradientType=1 );
+	
 }
 
 #logo {
@@ -104,7 +105,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='F0F0F0', endC
 
 }		
     
-a {
+.topmenu a {
 	text-transform: uppercase;
     font-size: 0.8em;
     color: black;
@@ -120,7 +121,7 @@ a {
     opacity: 1;
 }
 
-a:hover {
+.topmenu a:hover {
 	color: white;
 	text-decoration: none;
 }
@@ -210,25 +211,16 @@ a:hover {
     border-top: 1px solid rgba(0,0,0,.125);
 }
 
-.footer {
+.footer1 {
 	text-align: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	color: black;
+	color: white;
 	position: absolute;
 	bottom: auto;
 	width: 100%;
-	background: #B02A56;
-
-background: linear-gradient(90deg, #B02A56 1%, #F0F0F0 78%);
-
-background: -webkit-linear-gradient(90deg, #B02A56 1%, #F0F0F0 78%);
-
-background: -moz-linear-gradient(90deg, #B02A56 1%, #F0F0F0 78%);
-
-background: -o-linear-gradient(90deg, #B02A56 1%, #F0F0F0 78%);
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='B02A56', endColorstr='#F0F0F0',GradientType=1 );
+	background-color: #001871;
+	
 }
 
 .product {
@@ -319,6 +311,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='B02A56', endC
     left: 40px;
 	}
 
+
 .card1 {
 	width: 100px;
 	padding-right: 10px;
@@ -326,10 +319,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='B02A56', endC
 	top: 0;
 }	
 
-.comment2 {
-	width: 60%;
-	float: right;
+.c2 {
+    background-color: crimson;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    height: 30px;
+    margin-right: 10px;
+
+    }
+.c2 a {
+	color: white;
 }
+
 .card-text {
 	text-align: justify;
 }
@@ -337,6 +339,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='B02A56', endC
 .comm1 {
 	margin-top: -53px;
 }
+
 
 @media screen and (max-width: 600px) {
 
@@ -349,6 +352,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='B02A56', endC
 	.topmenu {
 		flex-flow: column nowrap;
 		position: relative;
+		height: 500px;
 }	
 	.row {
 		flex-flow: column nowrap;

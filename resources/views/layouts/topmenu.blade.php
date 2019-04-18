@@ -1,14 +1,16 @@
 <nav>
   <ul class="topmenu">
-    <li class="item item-1"><a href="{{asset('index')}}">Главная</a></li>
-    <li class="item item-2"><a href="{{asset('about')}}">О компании</a></li>
-    <li class="item item-3"><a href="{{asset('services')}}">Услуги</a></li>
-    <li class="item item-4"><a href="{{asset('categories')}}">Товары</a></li>
-    <li class="item item-5"><a href="{{asset('contakts')}}">Контакты</a></li>
+  <li class="item item-1"><a href="{{asset('index')}}">Главная</a></li>
+
+  @foreach ($v_catalogs as $one)
+      <li class="item item-2"><a href="{{asset('catalog/'.$one->id)}}">{{$one->name}}</a>
+      </li>
+      @endforeach
+    
   
 	@guest
                             
-                                <li class="item item-7"><a class="nav-link" href="{{ route('login') }}">{{ __('Логин') }}</a></li>
+                                <li class="item item-7"><a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a></li>
 
                                 @if (Route::has('register'))
                                     <li class="item item-8"><a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a></li>

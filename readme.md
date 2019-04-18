@@ -9,7 +9,7 @@
 
 ## Информация по установке на сервер
 - cd domains
-- git clone https://github.com/marylolly/My_Project.git
+- git clone https://github.com/marylolly/diplom_project.git
 - composer self-update
 - composer install
 - создать файл .env из .env.example
@@ -17,7 +17,7 @@
 - выполнить миграции php artisan migrate либо экспорт файла своей БД
 - проверить порт в файле .env
 - перезапустить сервер
-- http://My_project.git
+- http://diplom_project.git
 
 ## About Laravel
 
